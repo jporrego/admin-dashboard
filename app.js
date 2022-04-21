@@ -49,7 +49,7 @@ function drawChart() {
       gridlines: { color: "#31334c" },
     },
     backgroundColor: { fill: "#1b1c30" },
-    chartArea: { width: "85%", backgroundColor: "#1b1c30" },
+    chartArea: { width: "100%", backgroundColor: "#1b1c30" },
     colors: ["#5046ba"],
     crosshair: { color: "#ffc540" },
     fontName: "Poppins",
