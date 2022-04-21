@@ -342,6 +342,7 @@ body {
 }
 
 .project {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -350,7 +351,24 @@ body {
     border-radius: 1rem;
     cursor: pointer;
     transition: all .2s ease-out;
+    z-index: 0;
 }
+
+/*
+.project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("./img/swirl-01-01-01.png");
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+    background-position: bottom -5px left -5rem;
+    filter: brightness(1);
+    z-index: -1;
+}*/
 
 .project:hover {
     background-color: var(--purple);
@@ -364,10 +382,11 @@ body {
 .project__title {
     font-size: 1.4rem;
     font-weight: 600;
+
 }
 
 .project__description {
-    color: var(--grey-light);
+    color: var(--white-darker);
     font-size: 1rem;
     font-weight: 500;
     transition: all .2s ease-out;
@@ -449,13 +468,15 @@ body {
     grid-area: news;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    max-height: 50rem;
     padding: var(--big-padding);
 }
 
 .news__container {
+    max-height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100%;
+    grid-template-columns: 2fr 1fr;
     gap: 2rem;
     background-color: var(--purple);
     border-radius: var(--small-padding);
@@ -464,6 +485,7 @@ body {
 
 .news__highlight {
     position: relative;
+    max-height: 100%;
     padding: var(--big-padding);
     z-index: 0;
     cursor: pointer;
@@ -520,9 +542,10 @@ body {
 
 .news__small {
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
+    overflow: auto;
 }
 
 .new {
@@ -583,8 +606,7 @@ body {
     display: grid;
     grid-template-columns: max-content max-content;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        "pfp tag"
+    grid-template-areas: "pfp tag"
         "pfp name";
     margin-right: 1rem;
     cursor: pointer;
@@ -615,6 +637,44 @@ body {
 }
 
 /*#endregion*/
-
-
 /*#endregion*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 1rem;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track-piece {
+    background: var(--purple);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: white;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--purple);
+}
+
+@media only screen and (max-width: 1350px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .scaffold {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "all";
+    }
+}
+
+@media only screen and (max-width: 600px) {}
